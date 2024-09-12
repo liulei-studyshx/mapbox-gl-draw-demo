@@ -1,8 +1,19 @@
-# React + Vite
+#Mapbox MapBoxDraw React + Vite 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本demo封装mapbox-gl、mapbox-gl-draw实现了地图的初始化和标绘，实现了添加标绘时渲染特定样式的标绘，
+  、、、、
+     neoMap.current = new Map({
+      container: 'canvas'
+    })
+    //生成地图实例
+     neoMap.current.on('load',()=>{
+        console.log('组件地图加载完成');
+        editMap.current = new EditMap(neoMap.current);
+        //生成标会实例
+       })
+  、、、、
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+、、、、
+editMap.current.addDraw();
+//生成指定样式的标绘图层
+、、、、
