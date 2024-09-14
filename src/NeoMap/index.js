@@ -3,7 +3,6 @@
  */
 import 'mapbox-gl/dist/mapbox-gl.css';
 import mapboxgl from 'mapbox-gl';
-import React, { useEffect } from 'react';
 import {getStyle} from './mapStyle'
 import OptionMap from './OptionMap';
 /**
@@ -16,9 +15,9 @@ class NeoMap{
         this.params = params;
         this.isValidParam();
         this.map = null;
-        mapboxgl.accessToken = params.accessToken ||'pk.eyJ1IjoieWFuY29uZ3dlbiIsImEiOiJjaml4eWgxMnowNHY0M3BvMW96cDI1bWJ6In0.QA-bmCCquo-mziBfZ8KOIQ';
+        mapboxgl.accessToken = params.accessToken ||'pk.eyJ1IjoiZXhhbXBsZXMiLCJhIjoiY2p0MG01MXRqMW45cjQzb2R6b2ptc3J4MSJ9.zA2W0IkI0c6KaAhJfk9bWg';
         this.initMap(params);
-        return Object.assign(this.map,new OptionMap(this.map,this.params));
+        return new OptionMap(this.map,this.params);
     }
     /**
      * 判断必要参数
@@ -42,12 +41,13 @@ class NeoMap{
         this.map = new mapboxgl.Map({
             container: params.container ,
             style: getStyle(this.params.type),
-            center: params.center || [116.38,39.90],
+            center: params.center || [120, 30],
             zoom: params.zoom || 16,
             accessToken: params.accessToken || this.accessToken,
             // projection: params.projection || 'MERCATOR',
             minZoom: params.minZoom || 1.5,
             maxZoom: params.maxZoom || 20.49,
+            antialias: true
         })
     }
 }

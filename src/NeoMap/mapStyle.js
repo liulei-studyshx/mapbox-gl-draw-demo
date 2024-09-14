@@ -48,7 +48,7 @@ const getSources = (type) => {
   }
   return sources;
 };
-export const getStyle = (type, titles) => {
+export const getStyle = (type) => {
   let NeoMapStyle = {
     version: 8,
     name: "NeoMap",
